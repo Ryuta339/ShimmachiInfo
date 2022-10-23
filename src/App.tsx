@@ -1,12 +1,12 @@
 import './App.css';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import HomePage from './components/pages/HomePage'
+import TopPage from './components/pages/TopPage'
 
 const App = () => {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<HomePage />} />
+        <Route path="/ShimmachiInfo" element={<TopPage />} />
       </Routes>
     </Router>
   )
