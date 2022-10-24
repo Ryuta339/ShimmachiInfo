@@ -1,5 +1,7 @@
 import * as React from "react"
-import { Paper, Typography } from '@mui/material'
+import { Box, Paper, Typography } from '@mui/material'
+import Konva from "konva"
+import { Circle, Layer, Stage } from 'react-konva'
 
 const BoardPaper: React.FC = () => {
   return (
@@ -20,6 +22,20 @@ const BoardPaper: React.FC = () => {
       >
         配線状態
       </Typography>
+      <Stage
+        width={500}
+        height={370}
+      >
+        <Layer>
+          <Circle
+            x={250}
+            y={185}
+            radius={70}
+            fill={"red"}
+            stroke={"black"}
+          />
+        </Layer>
+      </Stage>
     </Paper>
   )
 }
