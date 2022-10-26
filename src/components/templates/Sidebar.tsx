@@ -1,7 +1,7 @@
 import React from "react"
 import ListItems from './listItems'
 import { styled } from '@mui/material/styles'
-import { Divider, Drawer as MuiDrawer, List, Toolbar, Typography } from '@mui/material'
+import { Divider, Drawer as MuiDrawer, Toolbar } from '@mui/material'
 
 
 const drawerWidth = 240;

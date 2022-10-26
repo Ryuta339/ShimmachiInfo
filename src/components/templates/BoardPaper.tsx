@@ -1,7 +1,6 @@
 import * as React from "react"
 import { Container, Paper, Typography } from '@mui/material'
-import Konva from "konva"
-import { Circle, Group, Layer, Line, Stage, Text } from 'react-konva'
+import { Layer, Stage, Text } from 'react-konva'
 import { mainLayer } from '../../settings/lines'
 import { switchLayer } from '../../settings/switches'
 
