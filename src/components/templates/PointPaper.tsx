@@ -1,7 +1,7 @@
 import * as React from "react"
 import { Paper, Typography } from '@mui/material'
 
-const SwitchPaper: React.FC = () => {
+const PointPaper: React.FC = () => {
   return (
     <Paper 
       elevation={1}
@@ -24,4 +24,4 @@ const SwitchPaper: React.FC = () => {
   )
 }
 
-export default SwitchPaper
+export default PointPaper

@@ -2,7 +2,7 @@ import React from "react";
 import { Container, Grid } from '@mui/material'
 
 import BoardPaper from './BoardPaper'
-import SwitchPaper from './SwitchPaper'
+import PointPaper from './PointPaper'
 import PowerPaper from './PowerPaper'
 import { LayerNode } from '../../settings/drawings'
 
@@ -27,7 +27,7 @@ const AppMain: React.FC<AppMainProps> = (
           />
         </Grid>
         <Grid item xs={12} md={6}>
-          <SwitchPaper />
+          <PointPaper />
         </Grid>
         <Grid item xs={12} md={6}>
           <PowerPaper />
