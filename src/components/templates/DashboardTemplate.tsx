@@ -17,6 +17,86 @@ const data = [
     switches: [],
     numbers: [],
   },
+  // 本線-引上線
+  // 1番線-引上線
+  {
+    lines: [
+      Lines.firstLine, Lines.firstToSecondCross, Lines.inboundSubLine,
+      Lines.secondToThirdCross, Lines.outboundSubLine, Lines.thirdToFourthCross1,
+      Lines.firstPocketSubLine, Lines.firstPocketTrack,
+    ],
+    switches: [
+      Switches.firstTrack, Switches.cross,
+      Switches.honsenToPocket, Switches.firstPocket,
+    ],
+    numbers: [6, 9, 10],
+  },
+  {
+    lines: [
+      Lines.firstLine, Lines.firstToSecondCross, Lines.inboundSubLine,
+      Lines.secondToThirdCross, Lines.outboundSubLine, Lines.thirdToFourthCross1,
+      Lines.firstPocketSubLine, Lines.firstPocketToSecondPocketCross,
+      Lines.secondPocketTrack,
+    ],
+    switches: [
+      Switches.firstTrack, Switches.cross,
+      Switches.honsenToPocket, Switches.secondPocket,
+    ],
+    numbers: [6, 9, 10, 13, 14],
+  },
+  {
+    lines: [
+      Lines.firstLine, Lines.firstToSecondCross, Lines.inboundSubLine,
+      Lines.secondToThirdCross, Lines.outboundSubLine, Lines.thirdToFourthCross1,
+      Lines.firstPocketSubLine, Lines.firstPocketToSecondPocketCross,
+      Lines.secondPocketToThirdPocketCross, Lines.thirdPocketTrack,
+    ],
+    switches: [
+      Switches.firstTrack, Switches.cross,
+      Switches.honsenToPocket, Switches.thirdPocket,
+    ],
+    numbers: [6, 9, 10, 13, 15],
+  },
+  // 2番線-引上線
+  {
+    lines: [
+      Lines.secondLine, Lines.inboundSubLine,
+      Lines.secondToThirdCross, Lines.outboundSubLine, Lines.thirdToFourthCross1,
+      Lines.firstPocketSubLine, Lines.firstPocketTrack,
+    ],
+    switches: [
+      Switches.secondTrack, Switches.cross,
+      Switches.honsenToPocket, Switches.firstPocket,
+    ],
+    numbers: [9, 10],
+  },
+  {
+    lines: [
+      Lines.secondLine, Lines.inboundSubLine,
+      Lines.secondToThirdCross, Lines.outboundSubLine, Lines.thirdToFourthCross1,
+      Lines.firstPocketSubLine, Lines.firstPocketToSecondPocketCross,
+      Lines.secondPocketTrack,
+    ],
+    switches: [
+      Switches.secondTrack, Switches.cross,
+      Switches.honsenToPocket, Switches.secondPocket,
+    ],
+    numbers: [9, 10, 13, 14],
+  },
+  {
+    lines: [
+      Lines.secondLine, Lines.inboundSubLine,
+      Lines.secondToThirdCross, Lines.outboundSubLine, Lines.thirdToFourthCross1,
+      Lines.firstPocketSubLine, Lines.firstPocketToSecondPocketCross,
+      Lines.secondPocketToThirdPocketCross, Lines.thirdPocketTrack,
+    ],
+    switches: [
+      Switches.secondTrack, Switches.cross,
+      Switches.honsenToPocket, Switches.thirdPocket,
+    ],
+    numbers: [9, 10, 13, 15],
+  },
+  // 3番線-引上線
   {
     lines: [
       Lines.thirdLine, Lines.inboundSubLine, Lines.thirdToFourthCross1,
@@ -25,7 +105,7 @@ const data = [
     switches: [
       Switches.thirdTrack, Switches.honsenToPocket, Switches.firstPocket,
     ],
-    numbers: [9],
+    numbers: [10],
   },
   {
     lines: [
@@ -36,7 +116,7 @@ const data = [
     switches: [
       Switches.thirdTrack, Switches.honsenToPocket, Switches.secondPocket,
     ],
-    numbers: [9, 13, 14],
+    numbers: [10, 13, 14],
   },
   {
     lines: [
@@ -47,7 +127,93 @@ const data = [
     switches: [
       Switches.thirdTrack, Switches.honsenToPocket, Switches.thirdPocket,
     ],
-    numbers: [9, 13, 15],
+    numbers: [10, 13, 15],
+  },
+  // 4番線-引上線
+  {
+    lines: [
+      Lines.fourthLine, Lines.fourthSubLine, Lines.fourthSubLineOnCross,
+      Lines.firstPocketSubLine, Lines.firstPocketTrack,
+    ],
+    switches: [
+      Switches.fourthTrack, Switches.honsenToPocket, Switches.firstPocket,
+    ],
+    numbers: [],
+  },
+  {
+    lines: [
+      Lines.fourthLine, Lines.fourthSubLine, Lines.fourthSubLineOnCross,
+      Lines.firstPocketSubLine, Lines.firstPocketToSecondPocketCross,
+      Lines.secondPocketTrack,
+    ],
+    switches: [
+      Switches.fourthTrack, Switches.honsenToPocket, Switches.secondPocket,
+    ],
+    numbers: [13, 14],
+  },
+  {
+    lines: [
+      Lines.fourthLine, Lines.fourthSubLine, Lines.fourthSubLineOnCross,
+      Lines.firstPocketSubLine, Lines.firstPocketToSecondPocketCross,
+      Lines.secondPocketToThirdPocketCross, Lines.thirdPocketTrack,
+    ],
+    switches: [
+      Switches.fourthTrack, Switches.honsenToPocket, Switches.thirdPocket,
+    ],
+    numbers: [13, 15],
+  },
+  // 本線-留置線
+  {
+    lines: [
+      Lines.firstLine, Lines.dententionToFirstLine, Lines.firstDententionLine,
+    ],
+    switches: [
+      Switches.firstTrack, Switches.dententions,
+    ],
+    numbers: [16],
+  },
+  {
+    lines: [
+      Lines.firstLine, Lines.dententionToFirstLine,
+      Lines.dententionFirstToSecond, Lines.secondDententionLine,
+    ],
+    switches: [
+      Switches.firstTrack, Switches.dententions,
+    ],
+    numbers: [17],
+  },
+  {
+    lines: [
+      Lines.firstLine, Lines.dententionToFirstLine,
+      Lines.dententionFirstToSecond, Lines.dententionSecondToThird,
+      Lines.thirdDententionLine,
+    ],
+    switches: [
+      Switches.firstTrack, Switches.dententions,
+    ],
+    numbers: [18],
+  },
+  {
+    lines: [
+      Lines.firstLine, Lines.dententionToFirstLine, 
+      Lines.dententionFirstToSecond, Lines.dententionSecondToThird,
+      Lines.dententionThirdToFourth, Lines.fourthDententionLine,
+    ],
+    switches: [
+      Switches.firstTrack, Switches.dententions,
+    ],
+    numbers: [19],
+  },
+  {
+    lines: [
+      Lines.firstLine, Lines.dententionToFirstLine,
+      Lines.dententionFirstToSecond, Lines.dententionSecondToThird,
+      Lines.dententionThirdToFourth, Lines.fifthDententionLine,
+    ],
+    switches: [
+      Switches.firstTrack, Switches.dententions,
+    ],
+    numbers: [],
   },
 ]
 
