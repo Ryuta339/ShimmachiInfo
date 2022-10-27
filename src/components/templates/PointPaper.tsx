@@ -24,7 +24,7 @@ const PointPaper: React.FC<PointPaperProps> = ({ numOfPoints }) => {
       >
         ポイント操作
       </Typography>
-      <div>
+      <div style={{textAlign: "center"}} >
         <span>分岐ポイントは</span>
         <h1 color="red">
           {numOfPoints.map(elem => `${elem}, `)}
