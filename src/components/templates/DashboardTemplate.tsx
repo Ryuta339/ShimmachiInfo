@@ -7,7 +7,7 @@ import AppMain from './AppMain'
 import Sidebar from './Sidebar'
 import * as Lines from '../../settings/lines'
 import * as Switches from '../../settings/switches'
-import { LineNode, ShakosenState, SwitchNode } from '../../settings/drawings'
+import { LineNode, SelectedLineState, ShakosenState, SwitchNode } from '../../settings/drawings'
 
 const mdTheme = createTheme()
 
@@ -78,7 +78,7 @@ const DashboardTemplate: React.FC = () => {
             const i = Lines.mainLayer.children.indexOf(l)
             flag = flag || (idx === i)
           })
-          return flag ? ({...val, } as LineNode) : val
+          return flag ? ({...val, state: SelectedLineState} as LineNode) : val
         })
       }))
     }

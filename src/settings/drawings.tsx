@@ -73,17 +73,25 @@ export class GroupNode extends BoardNodeBase {
     super('Group')
     this.children = children;
   }
-
 }
+
+interface LineState {
+  color: string;
+}
+
+export const DefaultLineState: LineState = { color: 'black' }
+export const SelectedLineState: LineState = { color: 'red' }
 
 export class LineNode extends BoardNodeBase {
   points: number[];
   power: PowerUnitType;
+  state: LineState;
 
   constructor(power: PowerUnitType, points: number[] = []) {
     super('Line')
     this.power = power;
     this.points = points;
+    this.state = DefaultLineState;
   }
 
 }
@@ -145,7 +153,7 @@ const defaultNodeComponents: ComponentsDict = {
             y={0}
             points={lineNode.points}
             tension={0.1}
-            stroke="black"
+            stroke={lineNode.state.color}
             strokeWidth={lineNode.power.strokeWidth}
           />
         </>
