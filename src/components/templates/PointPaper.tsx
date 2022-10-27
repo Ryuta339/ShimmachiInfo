@@ -1,7 +1,11 @@
 import * as React from "react"
 import { Paper, Typography } from '@mui/material'
 
-const PointPaper: React.FC = () => {
+interface PointPaperProps {
+  numOfPoints: number[]
+}
+
+const PointPaper: React.FC<PointPaperProps> = ({ numOfPoints }) => {
   return (
     <Paper 
       elevation={1}
@@ -20,6 +24,13 @@ const PointPaper: React.FC = () => {
       >
         ポイント操作
       </Typography>
+      <div>
+        <span>分岐ポイントは</span>
+        <h1 color="red">
+          {numOfPoints.map(elem => `${elem}, `)}
+        </h1>
+        <span>番です</span>
+      </div>
     </Paper>
   )
 }

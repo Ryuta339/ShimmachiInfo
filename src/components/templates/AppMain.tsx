@@ -9,12 +9,14 @@ import { LayerNode } from '../../settings/drawings'
 interface AppMainProps {
   mainLayer: LayerNode,
   switchLayer: LayerNode,
+  numOfPoints: number[],
 }
 
 const AppMain: React.FC<AppMainProps> = (
   {
     mainLayer,
-    switchLayer
+    switchLayer,
+    numOfPoints,
   }
 ) => {
   return (
@@ -27,7 +29,7 @@ const AppMain: React.FC<AppMainProps> = (
           />
         </Grid>
         <Grid item xs={12} md={6}>
-          <PointPaper />
+          <PointPaper numOfPoints={numOfPoints} />
         </Grid>
         <Grid item xs={12} md={6}>
           <PowerPaper />

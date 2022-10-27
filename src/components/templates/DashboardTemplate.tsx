@@ -15,6 +15,7 @@ const data = [
   {
     lines: [],
     switches: [],
+    numbers: [],
   },
   {
     lines: [
@@ -23,7 +24,8 @@ const data = [
     ],
     switches: [
       Switches.thirdTrack, Switches.honsenToPocket, Switches.firstPocket,
-    ]
+    ],
+    numbers: [9],
   },
   {
     lines: [
@@ -33,7 +35,8 @@ const data = [
     ],
     switches: [
       Switches.thirdTrack, Switches.honsenToPocket, Switches.secondPocket,
-    ]
+    ],
+    numbers: [9, 13, 14],
   },
   {
     lines: [
@@ -43,13 +46,15 @@ const data = [
     ],
     switches: [
       Switches.thirdTrack, Switches.honsenToPocket, Switches.thirdPocket,
-    ]
+    ],
+    numbers: [9, 13, 15],
   },
 ]
 
 const DashboardTemplate: React.FC = () => {
   const [ mainLayerHook, setMainState ] = React.useState(Lines.mainLayer)
   const [ switchLayerHook, setSwitchState ] = React.useState(Switches.switchLayer)
+  const [ points, setPoints ] = React.useState<number[]>([])
 
   const clicks = data.map(elem => {
     return () => {
@@ -81,6 +86,8 @@ const DashboardTemplate: React.FC = () => {
           return flag ? ({...val, state: SelectedLineState} as LineNode) : val
         })
       }))
+
+      setPoints(elem.numbers)
     }
   })
 
@@ -109,6 +116,7 @@ const DashboardTemplate: React.FC = () => {
           <AppMain
             mainLayer={mainLayerHook}
             switchLayer={switchLayerHook}
+            numOfPoints={points}
           />
         </Box>
       </Box>
