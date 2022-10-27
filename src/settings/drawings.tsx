@@ -9,12 +9,12 @@ export interface PowerUnitType {
 
 export const Honsen: PowerUnitType = {
   label: '本線',
-  strokeWidth: 10,
+  strokeWidth: 3,
 }
 
 export const Shakosen: PowerUnitType = {
   label: '車庫線',
-  strokeWidth: 5,
+  strokeWidth: 1,
 }
 
 export interface PowerState {

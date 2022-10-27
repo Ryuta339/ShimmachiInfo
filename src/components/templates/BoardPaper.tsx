@@ -99,6 +99,53 @@ const BoardPaper: React.FC<BoardPaperProps> = (
               y={244}
               text="留置7番線"
             />
+            <Text
+              x={600}
+              y={80}
+              text="1番線"
+            />
+            <Text
+              x={600}
+              y={120}
+              text="2番線"
+            />
+            <Text
+              x={600}
+              y={150}
+              text="3番線"
+            />
+            <Text
+              x={600}
+              y={190}
+              text="4番線"
+            />
+            <Text
+              x={390}
+              y={259}
+              text={"洗浄1番線"}
+            />
+            <Text
+              x={390}
+              y={279}
+              text={"洗浄2番線"}
+            />
+            <Text
+              x={390}
+              y={299}
+              text={"洗浄3番線"}
+            />
+            <Text
+              x={100}
+              y={120}
+              fontSize={16}
+              text="下り本線→"
+            />
+            <Text
+              x={100}
+              y={178}
+              fontSize={16}
+              text="←上り本線"
+            />
           </Layer>
         </Stage>
       </Container>
