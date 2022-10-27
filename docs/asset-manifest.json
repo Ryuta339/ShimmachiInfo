@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/ShimmachiInfo/static/css/main.abd64e84.css",
-    "main.js": "/ShimmachiInfo/static/js/main.00bfad30.js",
+    "main.js": "/ShimmachiInfo/static/js/main.afc10311.js",
     "index.html": "/ShimmachiInfo/index.html",
     "main.abd64e84.css.map": "/ShimmachiInfo/static/css/main.abd64e84.css.map",
-    "main.00bfad30.js.map": "/ShimmachiInfo/static/js/main.00bfad30.js.map"
+    "main.afc10311.js.map": "/ShimmachiInfo/static/js/main.afc10311.js.map"
   },
   "entrypoints": [
     "static/css/main.abd64e84.css",
-    "static/js/main.00bfad30.js"
+    "static/js/main.afc10311.js"
   ]
 }
