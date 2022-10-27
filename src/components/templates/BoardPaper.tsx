@@ -1,10 +1,19 @@
 import * as React from "react"
 import { Container, Paper, Typography } from '@mui/material'
 import { Layer, Stage, Text } from 'react-konva'
-import { mainLayer } from '../../settings/lines'
-import { switchLayer } from '../../settings/switches'
+import { NodeGenerator, LayerNode } from "../../settings/drawings"
 
-const BoardPaper: React.FC = () => {
+interface BoardPaperProps {
+  mainLayer: LayerNode;
+  switchLayer: LayerNode;
+}
+
+const BoardPaper: React.FC<BoardPaperProps> = (
+  {
+    mainLayer,
+    switchLayer,
+  }
+) => {
   return (
     <Paper 
       elevation={1}
@@ -28,8 +37,12 @@ const BoardPaper: React.FC = () => {
           width={800}
           height={370}
         >
-          {mainLayer.render()}
-          {switchLayer.render()}
+          <NodeGenerator
+            node={mainLayer}
+          />
+          <NodeGenerator
+            node={switchLayer}
+          />
           <Layer>
             <Text
               x={140}

@@ -15,7 +15,7 @@ const Drawer = styled(MuiDrawer) (({theme}) => ({
   }
 }))
 
-const Sidebar: React.FC = () => {
+const Sidebar: React.FC<{ click: () => void, click2: () => void }> = ({ click, click2 }) => {
   return (
     <Drawer variant="permanent">
       <Toolbar 
@@ -28,7 +28,10 @@ const Sidebar: React.FC = () => {
       >
       </Toolbar>
       <Divider />
-      <ListItems />
+      <ListItems
+        click={click}
+        click2={click2}
+      />
     </Drawer>
   )
 }

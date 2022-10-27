@@ -39,33 +39,26 @@ export const ShakosenState: PowerState = {
 
 export interface BoardNode {
   id: string;
-  render(): React.ReactElement
+  fieldType: string;
+  children?: BoardNode[];
 }
 
 abstract class BoardNodeBase implements BoardNode {
   id: string;
+  fieldType: string;
 
-  constructor() {
+  constructor(fieldType: string) {
     this.id = uuidv4()
+    this.fieldType = fieldType
   }
-
-  abstract render(): React.ReactElement
 }
 
 export class LayerNode extends BoardNodeBase {
   children: BoardNode[];
 
   constructor(children: BoardNode[] = []) {
-    super()
+    super('Layer')
     this.children = children;
-  }
-
-  render(): React.ReactElement {
-    return (
-      <Layer id={this.id}>
-        {this.children.map(elem => elem.render())}
-      </Layer>
-    )
   }
 
   append(node: BoardNode) {
@@ -77,19 +70,10 @@ export class GroupNode extends BoardNodeBase {
   children: BoardNode[];
 
   constructor(children: BoardNode[] = []) {
-    super()
+    super('Group')
     this.children = children;
   }
 
-  render(): React.ReactElement {
-    return (
-      <Group id={this.id}>
-        {
-          this.children.map(elem => elem.render())
-        }
-      </Group>
-    )
-  }
 }
 
 export class LineNode extends BoardNodeBase {
@@ -97,25 +81,11 @@ export class LineNode extends BoardNodeBase {
   power: PowerUnitType;
 
   constructor(power: PowerUnitType, points: number[] = []) {
-    super()
+    super('Line')
     this.power = power;
     this.points = points;
   }
 
-  render(): React.ReactElement {
-    return (
-        <>
-          <Line
-            x={0}
-            y={0}
-            points={this.points}
-            tension={0.1}
-            stroke="black"
-            strokeWidth={this.power.strokeWidth}
-          />
-        </>
-      )
-  }
 }
 
 export class SwitchNode extends BoardNodeBase {
@@ -124,20 +94,72 @@ export class SwitchNode extends BoardNodeBase {
   state: PowerState
 
   constructor(x: number, y: number, state: PowerState) {
-    super()
+    super('Switch')
     this.x = x;
     this.y = y;
     this.state = state
   }
 
-  render(): React.ReactElement {
+}
+
+interface ComponentsDict {
+  [key: string]: React.FC<NodeProps>
+}
+
+interface NodeProps {
+  node: BoardNode;
+  components?: ComponentsDict;
+}
+
+const defaultNodeComponents: ComponentsDict = {
+  'Layer': ({ node, components }: NodeProps) => (
+      <Layer id={node.id}>
+        {node.children &&
+          node.children.map(elem => (
+            <NodeGenerator
+              node={elem}
+              components={components}
+            />
+          ))
+        }
+      </Layer>
+    ),
+  'Group': ({ node, components }: NodeProps) => (
+      <Group id={node.id}>
+        {node.children &&
+          node.children.map(elem => (
+            <NodeGenerator
+              node={elem}
+              components={components}
+            />
+          ))
+        }
+      </Group>
+    ),
+  'Line': ({ node }: NodeProps) => {
+      const lineNode = node as LineNode
+      return (
+        <>
+          <Line
+            x={0}
+            y={0}
+            points={lineNode.points}
+            tension={0.1}
+            stroke="black"
+            strokeWidth={lineNode.power.strokeWidth}
+          />
+        </>
+      )
+    },
+  'Switch': ({ node }: NodeProps) => {
+    const switchNode = node as SwitchNode
     return (
       <>
         <Circle
-          x={this.x}
-          y={this.y}
+          x={switchNode.x}
+          y={switchNode.y}
           radius={7}
-          fill={this.state.color}
+          fill={switchNode.state.color}
         />
       </>
     )
@@ -145,3 +167,15 @@ export class SwitchNode extends BoardNodeBase {
 }
 
 
+export function NodeGenerator({ node, components }: NodeProps): React.ReactElement {
+  const mergedComponents: ComponentsDict = {
+    ...defaultNodeComponents,
+    ...components,
+  }
+
+  return (
+    <>
+      {mergedComponents[node.fieldType]( {node: node, components: mergedComponents} )}
+    </>
+  )
+}
