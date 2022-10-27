@@ -43,7 +43,8 @@ export const dententionLineGroup1 = new GroupNode([
   dententionSecondToThird,
   dententionThirdToFourth,
 ])
-mainLayer.append(dententionLineGroup1)
+// mainLayer.append(dententionLineGroup1)
+dententionLineGroup1.children.forEach(elem => mainLayer.append(elem))
 
 // 引き上げ線
 export const firstPocketTrack = new LineNode(Shakosen, [60, 210, 240, 210]);
@@ -54,7 +55,8 @@ export const pocketTrackGroup = new GroupNode([
   secondPocketTrack,
   thirdPocketTrack
 ])
-mainLayer.append(pocketTrackGroup)
+// mainLayer.append(pocketTrackGroup)
+pocketTrackGroup.children.forEach(elem => mainLayer.append(elem))
 
 // 留置6, 7番線
 export const sixthDententionLine = new LineNode(Shakosen, [460, 230, 750, 230])
@@ -65,7 +67,8 @@ export const dententionLineGroup2 = new GroupNode([
   seventhDententionLine,
   sixthDententionToSeventhDentention
 ])
-mainLayer.append(dententionLineGroup2)
+// mainLayer.append(dententionLineGroup2)
+dententionLineGroup2.children.forEach(elem => mainLayer.append(elem))
 
 // 洗浄線
 export const firstWashLine = new LineNode(Shakosen, [330, 270, 630, 270])
@@ -84,8 +87,8 @@ export const washGroup = new GroupNode([
   firstToMainWashLine,
   toYard
 ])
-mainLayer.append(washGroup)
-
+// mainLayer.append(washGroup)
+washGroup.children.forEach(elem => mainLayer.append(elem))
 
 
 // 渡り線
@@ -107,7 +110,8 @@ export const crossGroup = new GroupNode([
   fourthToDententionCross,
   dentensionToYardCross
 ])
-mainLayer.append(crossGroup)
+// mainLayer.append(crossGroup)
+crossGroup.children.forEach(elem => mainLayer.append(elem))
 
 
 // 補助線
@@ -131,7 +135,5 @@ export const subLineGroup = new GroupNode([
   dententionSubLine,
   pocketToWashLine
 ])
-mainLayer.append(subLineGroup)
-
-
-
+// mainLayer.append(subLineGroup)
+subLineGroup.children.forEach(elem => mainLayer.append(elem))
