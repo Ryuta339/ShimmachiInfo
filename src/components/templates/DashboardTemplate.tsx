@@ -5,36 +5,84 @@ import {  CssBaseline, Box, Toolbar } from "@mui/material";
 import AppHeader from './AppHeader'
 import AppMain from './AppMain'
 import Sidebar from './Sidebar'
-import { mainLayer } from '../../settings/lines'
-import { switchLayer } from '../../settings/switches'
-import { ShakosenState, SwitchNode } from '../../settings/drawings'
+import * as Lines from '../../settings/lines'
+import * as Switches from '../../settings/switches'
+import { LineNode, ShakosenState, SwitchNode } from '../../settings/drawings'
 
 const mdTheme = createTheme()
 
+const data = [
+  {
+    lines: [],
+    switches: [],
+  },
+  {
+    lines: [
+      Lines.thirdLine, Lines.inboundSubLine, Lines.thirdToFourthCross1,
+      Lines.firstPocketSubLine, Lines.firstPocketTrack,
+    ],
+    switches: [
+      Switches.thirdTrack, Switches.honsenToPocket, Switches.firstPocket,
+    ]
+  },
+  {
+    lines: [
+      Lines.thirdLine, Lines.inboundSubLine, Lines.thirdToFourthCross1,
+      Lines.firstPocketSubLine, Lines.firstPocketToSecondPocketCross,
+      Lines.secondPocketTrack,
+    ],
+    switches: [
+      Switches.thirdTrack, Switches.honsenToPocket, Switches.secondPocket,
+    ]
+  },
+  {
+    lines: [
+      Lines.thirdLine, Lines.inboundSubLine, Lines.thirdToFourthCross1,
+      Lines.firstPocketSubLine, Lines.firstPocketToSecondPocketCross,
+      Lines.secondPocketToThirdPocketCross, Lines.thirdPocketTrack,
+    ],
+    switches: [
+      Switches.thirdTrack, Switches.honsenToPocket, Switches.thirdPocket,
+    ]
+  },
+]
+
 const DashboardTemplate: React.FC = () => {
-  const [ mainLayerHook, setMainState ] = React.useState(mainLayer)
-  const [ switchLayerHook, setSwitchState ] = React.useState(switchLayer)
+  const [ mainLayerHook, setMainState ] = React.useState(Lines.mainLayer)
+  const [ switchLayerHook, setSwitchState ] = React.useState(Switches.switchLayer)
 
-  const click = () => {
-    setSwitchState(switchLayer)
+  const clicks = data.map(elem => {
+    return () => {
+      setSwitchState(Switches.switchLayer)
+      setMainState(Lines.mainLayer)
 
-    setSwitchState((prevState) => ({
-      ...prevState,
-      children: prevState.children.map((val, idx) => (idx===0 ? ({...val, state:ShakosenState} as SwitchNode): val)),
-        append: prevState.append
-      })
-    )
-  }
-  const click2 = () => {
-    setSwitchState(switchLayer)
+      setSwitchState((prevState) => ({
+        ...prevState,
+        append: prevState.append,
+        children: prevState.children.map((val, idx) => {
+          let flag: boolean = false
+          elem.switches.forEach(s => {
+            const i = Switches.switchLayer.children.indexOf(s)
+            flag = flag || (idx === i)
+          })
+          return flag ? ({...val, state:ShakosenState} as SwitchNode): val
+        })
+      }))
 
-    setSwitchState((prevState) => ({
-      ...prevState,
-      children: prevState.children.map((val, idx) => (idx===4 ? ({...val, state:ShakosenState} as SwitchNode): val)),
-        append: prevState.append
-      })
-    )
-  }
+      setMainState((prevState) => ({
+        ...prevState,
+        append: prevState.append,
+        children: prevState.children.map((val, idx) => {
+          let flag: boolean = false
+          elem.lines.forEach(l => {
+            const i = Lines.mainLayer.children.indexOf(l)
+            flag = flag || (idx === i)
+          })
+          return flag ? ({...val, } as LineNode) : val
+        })
+      }))
+    }
+  })
 
   return (
     <ThemeProvider theme={mdTheme}>
@@ -42,8 +90,7 @@ const DashboardTemplate: React.FC = () => {
         <CssBaseline />
         <AppHeader />
         <Sidebar 
-          click={click}
-          click2={click2}
+          clicks={clicks}
         />
         <Box
           component="main"

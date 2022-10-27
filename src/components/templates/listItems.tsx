@@ -1,13 +1,14 @@
 import * as React from 'react';
 import { Collapse, List, ListItemButton, ListItemIcon, ListItemText } from '@mui/material';
 import { ExpandLess, ExpandMore } from '@mui/icons-material'
-import { firstPocket } from '../../settings/switches'
-import { ShakosenState } from '../../settings/drawings'
+
+type Clickable = () => void
 
 interface RouteItemProps {
   depth: number;
   label: string;
   children?: RouteItemProps[];
+  click?: Clickable[];
 }
 
 const routeMembers: RouteItemProps[] = [
@@ -20,11 +21,11 @@ const routeMembers: RouteItemProps[] = [
         label: "3番線-引上げ1番線",
       },
       {
-        depth: 1,
+        depth: 2,
         label: "3番線-引上げ2番線",
       },
       {
-        depth: 1,
+        depth: 3,
         label: "3番線-引上げ3番線",
       },
     ],
@@ -46,7 +47,7 @@ const RouteItem: React.FC<RouteItemProps> = (props) => {
     if (props.depth === 0) {
       setOpen(!open);
     } else {
-      firstPocket.state = ShakosenState
+      props.click![props.depth]()
     }
   }
 
@@ -68,7 +69,9 @@ const RouteItem: React.FC<RouteItemProps> = (props) => {
           {
             props.children.map((val, idx) => {
               return (
-                <RouteItem {...val} />
+                <RouteItem {...val}
+                  click={props.click}
+                />
               )
             })
           }
@@ -79,23 +82,20 @@ const RouteItem: React.FC<RouteItemProps> = (props) => {
 }
 
 
-const ListItems: React.FC<{ click: ()=>void, click2: ()=>void }> = ({ click, click2 }) => {
+const ListItems: React.FC<{ clicks: Clickable[] }> = ({ clicks }) => {
   return (
     <List component="nav">
-      <ListItemButton onClick={click}>
+      <ListItemButton onClick={clicks[0]}>
         <ListItemIcon>
         </ListItemIcon>
         <ListItemText primary="メイン" />
       </ListItemButton>
-      <ListItemButton onClick={click2}>
-        <ListItemIcon>
-        </ListItemIcon>
-        <ListItemText primary="メイン2" />
-      </ListItemButton>
       {
         routeMembers.map((val: RouteItemProps, idx) => {
           return (
-            <RouteItem {...val} />
+            <RouteItem {...val}
+              click={clicks}
+            />
           )
         })
       }
