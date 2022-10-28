@@ -5,7 +5,7 @@ import MuiAppBar, { AppBarProps as MuiAppBarProps } from '@mui/material/AppBar'
 import MenuIcon from '@mui/icons-material/Menu'
 import NotificationsIcon from '@mui/icons-material/Notifications'
 
-const drawerWidth = 240;
+const drawerWidth = 250;
 
 const AppBar = styled(MuiAppBar, {}) <MuiAppBarProps> (({theme}) => ({
   zIndex: theme.zIndex.drawer + 1,

@@ -4,7 +4,7 @@ import { styled } from '@mui/material/styles'
 import { Divider, Drawer as MuiDrawer, Toolbar } from '@mui/material'
 
 
-const drawerWidth = 240;
+const drawerWidth = 250;
 
 const Drawer = styled(MuiDrawer) (({theme}) => ({
   '& .MuiDrawer-paper': {

@@ -116,7 +116,76 @@ const routeMembers: RouteItemProps[] = [
     depth: 0,
     index: 0,
     label: "引上線ー洗浄線・ヤード",
-  }
+    children: [
+      {
+        depth: 1,
+        index: 18,
+        label: "引上1番線ーヤード",
+      },
+      {
+        depth: 1,
+        index: 19,
+        label: "引上2番線ーヤード",
+      },
+      {
+        depth: 1,
+        index: 20,
+        label: "引上3番線ー洗浄1番線ーヤード",
+      },
+      {
+        depth: 1,
+        index: 21,
+        label: "引上3番線ー洗浄2番線ーヤード",
+      },
+      {
+        depth: 1,
+        index: 22,
+        label: "引上3番線ー洗浄2番線ーヤード",
+      },
+      {
+        depth: 1,
+        index: 23,
+        label: "引上3番線ーヤード（洗浄線非通過）",
+      },
+    ],
+  },
+  {
+    depth: 0,
+    index: 0,
+    label: "引上線ー留置6, 7番線",
+    children: [
+      {
+        depth: 1,
+        index: 24,
+        label: "引上1番線ー留置6番線",
+      },
+      {
+        depth: 1,
+        index: 25,
+        label: "引上1番線ー留置7番線",
+      },
+      {
+        depth: 1,
+        index: 26,
+        label: "引上2番線ー留置6番線",
+      },
+      {
+        depth: 1,
+        index: 27,
+        label: "引上2番線ー留置7番線",
+      },
+      {
+        depth: 1,
+        index: 28,
+        label: "引上3番線ー留置6番線",
+      },
+      {
+        depth: 1,
+        index: 29,
+        label: "引上3番線ー留置7番線",
+      },
+    ],
+  },
 ]
 
 const RouteItem: React.FC<RouteItemProps> = (props) => {

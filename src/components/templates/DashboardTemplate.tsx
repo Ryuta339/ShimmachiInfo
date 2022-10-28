@@ -215,6 +215,159 @@ const data = [
     ],
     numbers: [],
   },
+  // 引上線-ヤード
+  {
+    lines: [
+      Lines.firstPocketTrack, Lines.firstPocketSubLine,
+      Lines.fourthSubLineOnCross, Lines.fourthSubLine,
+      Lines.fourthToDententionCross, Lines.dententionSubLine,
+      Lines.sixthDententionToSeventhDentention,
+      Lines.dentensionToYardCross, Lines.firstToMainWashLine,
+      Lines.toYard,
+    ],
+    switches: [
+      Switches.firstPocket, Switches.honsenToPocket,
+      Switches.dententions67, Switches.yard,
+    ],
+    numbers: [5, 7, 8],
+  },
+  {
+    lines: [
+      Lines.secondPocketTrack, Lines.secondPocketSubLine,
+      Lines.dententionSubLine, Lines.sixthDententionToSeventhDentention,
+      Lines.dentensionToYardCross, Lines.firstToMainWashLine,
+      Lines.toYard,
+    ],
+    switches: [
+      Switches.secondPocket, Switches.secondPocketSub,
+      Switches.dententions67, Switches.yard,
+    ],
+    numbers: [5, 7],
+  },
+  {
+    lines: [
+      Lines.thirdPocketTrack, Lines.pocketToWashLine,
+      Lines.thirdToMainWashLine, Lines.firstWashLine,
+      Lines.firstToMainWashLine, Lines.toYard,
+    ],
+    switches: [
+      Switches.thirdPocket, Switches.washToPocket,
+      Switches.firstWash, Switches.yard,
+    ],
+    numbers: [],
+  },
+  {
+    lines: [
+      Lines.thirdPocketTrack, Lines.pocketToWashLine,
+      Lines.thirdToMainWashLine, Lines.secondWashLine,
+      Lines.secondToMainWashLine, Lines.toYard,
+    ],
+    switches: [
+      Switches.thirdPocket, Switches.washToPocket,
+      Switches.secondWash, Switches.yard,
+    ],
+    numbers: [3, 4, 11],
+  },
+  {
+    lines: [
+      Lines.thirdPocketTrack, Lines.pocketToWashLine,
+      Lines.thirdWashLine, Lines.secondToMainWashLine,
+      Lines.toYard,
+    ],
+    switches: [
+      Switches.thirdPocket, Switches.washToPocket,
+      Switches.thirdWash, Switches.yard,
+    ],
+    numbers: [3, 12],
+  },
+  {
+    lines: [
+      Lines.thirdPocketTrack, 
+      Lines.secondPocketToThirdPocketCross, Lines.secondPocketSubLine,
+      Lines.dententionSubLine, Lines.sixthDententionToSeventhDentention,
+      Lines.dentensionToYardCross, Lines.firstToMainWashLine,
+      Lines.toYard,
+    ],
+    switches: [
+      Switches.thirdPocket,Switches.secondPocketSub,
+      Switches.dententions67, Switches.yard,
+    ],
+    numbers: [5, 7, 14, 15],
+  },
+  // 引上線ー留置6,7 番線
+  {
+    lines: [
+      Lines.firstPocketTrack, Lines.firstPocketSubLine,
+      Lines.fourthToDententionCross, Lines.fourthSubLine,
+      Lines.fourthSubLineOnCross, Lines.dententionSubLine,
+      Lines.sixthDententionLine,
+    ],
+    switches: [
+      Switches.firstPocket, Switches.honsenToPocket,
+      Switches.dententions67,
+    ],
+    numbers: [8],
+  },
+  {
+    lines: [
+      Lines.firstPocketTrack, Lines.firstPocketSubLine,
+      Lines.fourthToDententionCross, Lines.fourthSubLine,
+      Lines.fourthSubLineOnCross, Lines.dententionSubLine,
+      Lines.sixthDententionToSeventhDentention,
+      Lines.seventhDententionLine,
+    ],
+    switches: [
+      Switches.firstPocket, Switches.honsenToPocket,
+      Switches.dententions67,
+    ],
+    numbers: [7, 8],
+  },
+  {
+    lines: [
+      Lines.secondPocketTrack, Lines.secondPocketSubLine,
+      Lines.dententionSubLine, Lines.sixthDententionLine,
+    ],
+    switches: [
+      Switches.secondPocket, Switches.secondPocketSub,
+      Switches.dententions67,
+    ],
+    numbers: [],
+  },
+  {
+    lines: [
+      Lines.secondPocketTrack, Lines.secondPocketSubLine,
+      Lines.dententionSubLine, Lines.seventhDententionLine,
+      Lines.sixthDententionToSeventhDentention,
+    ],
+    switches: [
+      Switches.secondPocket, Switches.secondPocketSub,
+      Switches.dententions67,
+    ],
+    numbers: [7],
+  },
+  {
+    lines: [
+      Lines.thirdPocketTrack, Lines.secondPocketToThirdPocketCross, Lines.secondPocketSubLine,
+      Lines.dententionSubLine, Lines.sixthDententionLine,
+    ],
+    switches: [
+      Switches.thirdPocket, Switches.secondPocketSub,
+      Switches.dententions67,
+    ],
+    numbers: [14, 15],
+  },
+  {
+    lines: [
+      Lines.secondPocketTrack, Lines.secondPocketSubLine,
+      Lines.dententionSubLine, Lines.seventhDententionLine,
+      Lines.sixthDententionToSeventhDentention,
+    ],
+    switches: [
+      Switches.thirdPocket, Switches.secondPocketSub,
+      Switches.dententions67,
+    ],
+    numbers: [7, 14, 15],
+  },
 ]
 
 const DashboardTemplate: React.FC = () => {
