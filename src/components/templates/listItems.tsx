@@ -230,6 +230,12 @@ const RouteItem: React.FC<RouteItemProps> = (props) => {
 
 
 const ListItems: React.FC<{ clicks: Clickable[] }> = ({ clicks }) => {
+  const handleClick = () => {
+    const rnd = Math.floor( Math.random() * (clicks.length-1) ) + 1;
+
+      clicks[rnd]()
+  }
+
   return (
     <List component="nav">
       <ListItemButton onClick={clicks[0]}>
@@ -244,6 +250,9 @@ const ListItems: React.FC<{ clicks: Clickable[] }> = ({ clicks }) => {
           )
         })
       }
+      <ListItemButton onClick={handleClick}>
+        <ListItemText primary="ランダム" />
+      </ListItemButton>
     </List>
   );
 }
