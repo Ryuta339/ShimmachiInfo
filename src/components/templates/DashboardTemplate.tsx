@@ -16,6 +16,7 @@ const data = [
     lines: [],
     switches: [],
     numbers: [],
+    straight: [],
   },
   // 本線-引上線
   // 1番線-引上線
@@ -30,6 +31,7 @@ const data = [
       Switches.honsenToPocket, Switches.firstPocket,
     ],
     numbers: [6, 9, 10],
+    straight: [13],
   },
   {
     lines: [
@@ -43,6 +45,7 @@ const data = [
       Switches.honsenToPocket, Switches.secondPocket,
     ],
     numbers: [6, 9, 10, 13, 14],
+    straight: [],
   },
   {
     lines: [
@@ -56,6 +59,7 @@ const data = [
       Switches.honsenToPocket, Switches.thirdPocket,
     ],
     numbers: [6, 9, 10, 13, 15],
+    straight: [14],
   },
   // 2番線-引上線
   {
@@ -69,6 +73,7 @@ const data = [
       Switches.honsenToPocket, Switches.firstPocket,
     ],
     numbers: [9, 10],
+    straight: [6, 13],
   },
   {
     lines: [
@@ -82,6 +87,7 @@ const data = [
       Switches.honsenToPocket, Switches.secondPocket,
     ],
     numbers: [9, 10, 13, 14],
+    straight: [6],
   },
   {
     lines: [
@@ -95,6 +101,7 @@ const data = [
       Switches.honsenToPocket, Switches.thirdPocket,
     ],
     numbers: [9, 10, 13, 15],
+    straight: [6, 14],
   },
   // 3番線-引上線
   {
@@ -106,6 +113,7 @@ const data = [
       Switches.thirdTrack, Switches.honsenToPocket, Switches.firstPocket,
     ],
     numbers: [10],
+    straight: [9, 13],
   },
   {
     lines: [
@@ -117,6 +125,7 @@ const data = [
       Switches.thirdTrack, Switches.honsenToPocket, Switches.secondPocket,
     ],
     numbers: [10, 13, 14],
+    straight: [9],
   },
   {
     lines: [
@@ -128,6 +137,7 @@ const data = [
       Switches.thirdTrack, Switches.honsenToPocket, Switches.thirdPocket,
     ],
     numbers: [10, 13, 15],
+    straight: [9, 14],
   },
   // 4番線-引上線
   {
@@ -139,6 +149,7 @@ const data = [
       Switches.fourthTrack, Switches.honsenToPocket, Switches.firstPocket,
     ],
     numbers: [],
+    straight: [8, 10, 13],
   },
   {
     lines: [
@@ -150,6 +161,7 @@ const data = [
       Switches.fourthTrack, Switches.honsenToPocket, Switches.secondPocket,
     ],
     numbers: [13, 14],
+    straight: [8, 10],
   },
   {
     lines: [
@@ -161,6 +173,7 @@ const data = [
       Switches.fourthTrack, Switches.honsenToPocket, Switches.thirdPocket,
     ],
     numbers: [13, 15],
+    straight: [8, 10, 14],
   },
   // 本線-留置線
   {
@@ -171,6 +184,7 @@ const data = [
       Switches.firstTrack, Switches.dententions,
     ],
     numbers: [16],
+    straight: [6],
   },
   {
     lines: [
@@ -181,6 +195,7 @@ const data = [
       Switches.firstTrack, Switches.dententions,
     ],
     numbers: [17],
+    straight: [6, 16],
   },
   {
     lines: [
@@ -192,6 +207,7 @@ const data = [
       Switches.firstTrack, Switches.dententions,
     ],
     numbers: [18],
+    straight: [6, 16, 17],
   },
   {
     lines: [
@@ -203,6 +219,7 @@ const data = [
       Switches.firstTrack, Switches.dententions,
     ],
     numbers: [19],
+    straight: [6, 16, 17, 18],
   },
   {
     lines: [
@@ -214,6 +231,7 @@ const data = [
       Switches.firstTrack, Switches.dententions,
     ],
     numbers: [],
+    straight: [6, 16, 17, 18, 19],
   },
   // 引上線-ヤード
   {
@@ -230,6 +248,7 @@ const data = [
       Switches.dententions67, Switches.yard,
     ],
     numbers: [5, 7, 8],
+    straight: [10, 13],
   },
   {
     lines: [
@@ -243,6 +262,7 @@ const data = [
       Switches.dententions67, Switches.yard,
     ],
     numbers: [5, 7],
+    straight: [8, 14],
   },
   {
     lines: [
@@ -255,6 +275,7 @@ const data = [
       Switches.firstWash, Switches.yard,
     ],
     numbers: [],
+    straight: [3, 11, 12, 15],
   },
   {
     lines: [
@@ -267,6 +288,7 @@ const data = [
       Switches.secondWash, Switches.yard,
     ],
     numbers: [3, 4, 11],
+    straight: [12, 15],
   },
   {
     lines: [
@@ -279,6 +301,7 @@ const data = [
       Switches.thirdWash, Switches.yard,
     ],
     numbers: [3, 12],
+    straight: [4, 15],
   },
   {
     lines: [
@@ -293,6 +316,7 @@ const data = [
       Switches.dententions67, Switches.yard,
     ],
     numbers: [5, 7, 14, 15],
+    straight: [3, 8],
   },
   // 引上線ー留置6,7 番線
   {
@@ -307,6 +331,7 @@ const data = [
       Switches.dententions67,
     ],
     numbers: [8],
+    straight: [7, 10, 13],
   },
   {
     lines: [
@@ -321,6 +346,7 @@ const data = [
       Switches.dententions67,
     ],
     numbers: [7, 8],
+    straight: [10, 13],
   },
   {
     lines: [
@@ -332,6 +358,7 @@ const data = [
       Switches.dententions67,
     ],
     numbers: [],
+    straight: [7, 8, 14],
   },
   {
     lines: [
@@ -344,6 +371,7 @@ const data = [
       Switches.dententions67,
     ],
     numbers: [7],
+    straight: [8, 14],
   },
   {
     lines: [
@@ -355,10 +383,11 @@ const data = [
       Switches.dententions67,
     ],
     numbers: [14, 15],
+    straight: [7, 8],
   },
   {
     lines: [
-      Lines.secondPocketTrack, Lines.secondPocketSubLine,
+      Lines.thirdPocketTrack, Lines.secondPocketToThirdPocketCross, Lines.secondPocketSubLine,
       Lines.dententionSubLine, Lines.seventhDententionLine,
       Lines.sixthDententionToSeventhDentention,
     ],
@@ -367,6 +396,7 @@ const data = [
       Switches.dententions67,
     ],
     numbers: [7, 14, 15],
+    straight: [8],
   },
 ]
 
@@ -374,6 +404,7 @@ const DashboardTemplate: React.FC = () => {
   const [ mainLayerHook, setMainState ] = React.useState(Lines.mainLayer)
   const [ switchLayerHook, setSwitchState ] = React.useState(Switches.switchLayer)
   const [ points, setPoints ] = React.useState<number[]>([])
+  const [ straight, setStraight ] = React.useState<number[]>([])
 
   const clicks = data.map(elem => {
     return () => {
@@ -407,6 +438,7 @@ const DashboardTemplate: React.FC = () => {
       }))
 
       setPoints(elem.numbers)
+      setStraight(elem.straight)
     }
   })
 
@@ -436,6 +468,7 @@ const DashboardTemplate: React.FC = () => {
             mainLayer={mainLayerHook}
             switchLayer={switchLayerHook}
             numOfPoints={points}
+            numOfStraight={straight}
           />
         </Box>
       </Box>

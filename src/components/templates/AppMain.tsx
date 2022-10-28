@@ -10,6 +10,7 @@ interface AppMainProps {
   mainLayer: LayerNode,
   switchLayer: LayerNode,
   numOfPoints: number[],
+  numOfStraight: number[],
 }
 
 const AppMain: React.FC<AppMainProps> = (
@@ -17,6 +18,7 @@ const AppMain: React.FC<AppMainProps> = (
     mainLayer,
     switchLayer,
     numOfPoints,
+    numOfStraight,
   }
 ) => {
   return (
@@ -29,7 +31,7 @@ const AppMain: React.FC<AppMainProps> = (
           />
         </Grid>
         <Grid item xs={12} md={6}>
-          <PointPaper numOfPoints={numOfPoints} />
+          <PointPaper numOfPoints={numOfPoints} numOfStraight={numOfStraight} />
         </Grid>
         <Grid item xs={12} md={6}>
           <PowerPaper />
